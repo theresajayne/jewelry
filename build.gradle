@@ -37,13 +37,22 @@ configurations {
 }
 
 dependencies {
-    compile("org.springframework.boot:spring-boot-starter-data-jpa")
-    compile("org.springframework.boot:spring-boot-starter-jdbc")
-    compile("org.springframework.boot:spring-boot-starter-security")
-    compile("org.springframework.boot:spring-boot-starter-web")
-    runtime("org.hsqldb:hsqldb")
-    providedRuntime("org.springframework.boot:spring-boot-starter-tomcat")
-    testCompile("org.springframework.boot:spring-boot-starter-test") 
+    providedCompile 'javax.servlet:javax.servlet-api:3.1.0'
+    compile "org.springframework.boot:spring-boot-starter-data-jpa"
+    compile "org.springframework.boot:spring-boot-starter-jdbc"
+    compile "org.springframework.boot:spring-boot-starter-security"
+    compile "org.springframework.boot:spring-boot-starter-web"
+    compile "org.hibernate:hibernate-core:4.3.6.Final"
+    compile "javax.servlet:jstl:1.1.2"
+    compile 'org.slf4j:slf4j-simple:1.7.7'
+    compile 'org.javassist:javassist:3.15.0-GA'
+    compile 'mysql:mysql-connector-java:5.1.31'
+    compile 'commons-dbcp:commons-dbcp:1.4'
+    compile 'jstl:jstl:1.2'
+    runtime "org.hsqldb:hsqldb"
+    runtime "javax.servlet:jstl:1.1.2"
+    providedRuntime "org.springframework.boot:spring-boot-starter-tomcat"
+    testCompile "org.springframework.boot:spring-boot-starter-test"
 }
 
 

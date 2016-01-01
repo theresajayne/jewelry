@@ -1,5 +1,6 @@
 package com.github.theresajayne.jewelry.config;
 
+import org.apache.tomcat.jdbc.pool.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -71,4 +72,5 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter
     public AuthenticationFailureHandler authenticationFailureHandler() {
         return new SimpleUrlAuthenticationFailureHandler();
     }
+
 }
