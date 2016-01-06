@@ -8,7 +8,9 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.orm.hibernate4.HibernateTemplate;
 import org.springframework.orm.hibernate4.HibernateTransactionManager;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBuilder;
+import org.springframework.orm.jpa.JpaVendorAdapter;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
+import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
@@ -90,5 +92,16 @@ public class JewelryConfig extends WebMvcConfigurerAdapter
         properties.put("hibernate.hbm2ddl.auto","update");
         return properties;
     }
+    @Bean
+    public LocalContainerEntityManagerFactoryBean entityManagerFactoryBean() {
+        LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
+        em.setDataSource(getDataSource());
+        em.setPackagesToScan("com.github.theresajayne.jewelry.entity");
 
+        JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
+        em.setJpaVendorAdapter(vendorAdapter);
+        em.setJpaProperties(getHibernateProperties());
+
+        return em;
+    }
 }
