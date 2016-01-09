@@ -16,11 +16,11 @@
     <hr/>
     CATEGORY<br/>
     <form name="category" action="/category">
-        <c:if test="${not empty category}">
+        <c:if test="${not empty lists}">
 
             <ul>
                 <c:forEach var="listValue" items="${lists}">
-                    <li>${listValue}</li>
+                    <li>${listValue.categoryName}</li>
                 </c:forEach>
             </ul>
 

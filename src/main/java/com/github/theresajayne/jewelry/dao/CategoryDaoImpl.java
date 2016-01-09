@@ -25,7 +25,13 @@ public class CategoryDaoImpl implements CategoryDao
     public List<Category> list()
     {
 
-        Query query = hibernateTemplate.getSessionFactory().getCurrentSession().createQuery("from Category"); //You will get Weayher object
+        Query query = hibernateTemplate.getSessionFactory().getCurrentSession().createQuery("from Category");
+        return query.list(); //You are accessing  as list<Category>
+    }
+
+    @Override
+    public List<Category> listActive() {
+        Query query = hibernateTemplate.getSessionFactory().getCurrentSession().createQuery("from Category where active = true");
         return query.list(); //You are accessing  as list<Category>
     }
 
@@ -35,7 +41,16 @@ public class CategoryDaoImpl implements CategoryDao
     }
 
     @Override
-    public void saveOrUpdate(Category category) {
+    public Category get(String name) {
+        Query query = hibernateTemplate.getSessionFactory().getCurrentSession().createQuery("from Category where categoryName = :name");
+        query.setString("name", name);
+        return (Category) query.uniqueResult(); //You are accessing  as list<Category>
+    }
+
+
+    @Override
+    public void saveOrUpdate(Category category)
+        {
 
     }
 

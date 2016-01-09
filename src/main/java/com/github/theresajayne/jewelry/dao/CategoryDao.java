@@ -11,7 +11,11 @@ import java.util.List;
 public interface CategoryDao {
     List<Category> list();
 
+    List<Category> listActive();
+
     Category get(long id);
+
+    Category get(String name);
 
     void saveOrUpdate(Category category);
 
