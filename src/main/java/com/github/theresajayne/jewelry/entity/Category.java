@@ -20,7 +20,8 @@ public class Category {
     private String description;
     @Column(name = "ACTIVE")
     private boolean active;
-
+    @Column(name = "DISPLAY_ORDER")
+    private Integer displayOrder;
 
     public long getId() {
         return id;
@@ -54,5 +55,13 @@ public class Category {
 
     public void setActive(boolean active) {
         this.active = active;
+    }
+
+    public int getDisplayOrder() {
+        return displayOrder;
+    }
+
+    public void setDisplayOrder(int displayOrder) {
+        this.displayOrder = displayOrder;
     }
 }

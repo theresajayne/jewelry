@@ -13,6 +13,8 @@ public interface CategoryService {
 
     List<Category> getAllCategories();
 
+    List<Category> getAllActive();
+
     Category getCategory(String name);
 
 }

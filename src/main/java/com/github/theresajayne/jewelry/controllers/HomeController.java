@@ -21,7 +21,7 @@ public class HomeController {
     @RequestMapping(value = {"/","/home"})
     public ModelAndView home() {
 
-        List<Category> list = categoryService.getAllCategories();
+        List<Category> list = categoryService.getAllActive();
 
         ModelAndView model = new ModelAndView("index");
         model.addObject("lists",list);

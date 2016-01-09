@@ -3,6 +3,7 @@ package com.github.theresajayne.jewelry.entity;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.*;
+import java.awt.*;
 
 /**
  * Created by Theresa on 27/12/2015.
@@ -26,6 +27,18 @@ public class Product
     private long price; //In pence we will do the math on entry.
     @Column(name = "COST")
     private long cost; //The cost so we can automate the price generation based on markup and perform profit/ loss from the DB
+    @Column(name = "CARAT")
+    private float carat;
+    @Column(name = "CUT")
+    private String cut;
+    @Column(name = "CLARITY")
+    private String clarity;
+    @Column(name = "SHAPE")
+    private String shape;
+    @Lob
+    @Column(name = "IMAGE")
+    private Image photo;
+
 
     public long getId() {
         return Id;
@@ -81,5 +94,45 @@ public class Product
 
     public void setCost(long cost) {
         this.cost = cost;
+    }
+
+    public float getCarat() {
+        return carat;
+    }
+
+    public void setCarat(float carat) {
+        this.carat = carat;
+    }
+
+    public String getCut() {
+        return cut;
+    }
+
+    public void setCut(String cut) {
+        this.cut = cut;
+    }
+
+    public String getClarity() {
+        return clarity;
+    }
+
+    public void setClarity(String clarity) {
+        this.clarity = clarity;
+    }
+
+    public String getShape() {
+        return shape;
+    }
+
+    public void setShape(String shape) {
+        this.shape = shape;
+    }
+
+    public Image getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(Image photo) {
+        this.photo = photo;
     }
 }

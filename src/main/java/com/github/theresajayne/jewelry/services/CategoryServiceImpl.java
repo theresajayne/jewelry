@@ -23,6 +23,11 @@ public class CategoryServiceImpl implements CategoryService{
     }
 
     @Override
+    public List<Category> getAllActive() {
+        return categoryDao.listActive();
+    }
+
+    @Override
     public Category getCategory(String name)
     {
         return categoryDao.get(name);
